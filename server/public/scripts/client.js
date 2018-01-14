@@ -32,16 +32,21 @@ function getTasks() {
                 // // $listItem.append(`<button class="editButton btn btn-info">Edit</button>`);
                 // $('#taskList').prepend($listItem);
 
-                // check to see bool results of complete field and set a string with yes or no and set up completed button to show
+                // Check to see bool results of complete field and
+                //      set a string with yes or no and
+                //      set up completed button to show
+                //      set up the color of the row by using bootstrap
                 let completed = 'No';
+                let setRowColor = `class="danger"`;
                 let completeButtonShow = `<td><button class="completeButton btn btn-info">Click to mark complete</button></td>`;
                 if (taskResponse.task_complete){
                     completed = 'Yes';
                     completeButtonShow =  `<td></td>`;
+                    setRowColor = `class="success"`;
                 }
                 // Create a new row with all the returned data for each instance in the returned object
                 //    Also store the data-id info in each row in case it is needed from the html in the future
-                $('.table').append(`<tr> data-id="${taskResponse.id}
+                $('.table').append(`<tr ${setRowColor}> data-id="${taskResponse.id}
                     <td>${taskResponse.task_name}</td> 
                     <td>${taskResponse.task_owner}</td>
                     <td>${taskResponse.task_priority}</td>
