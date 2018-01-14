@@ -32,17 +32,26 @@ function getTasks() {
                 // // $listItem.append(`<button class="editButton btn btn-info">Edit</button>`);
                 // $('#taskList').prepend($listItem);
 
-
+                // check to see bool results of complete field and set a string with yes or no and set up completed button to show
+                let completed = 'No';
+                let completeButtonShow = `<td><button class="completeButton btn btn-info">Click to mark complete</button></td>`;
+                if (taskResponse.task_complete){
+                    completed = 'Yes';
+                    completeButtonShow =  `<td></td>`;
+                }
                 // Create a new row with all the returned data for each instance in the returned object
                 //    Also store the data-id info in each row in case it is needed from the html in the future
                 $('.table').append(`<tr> data-id="${taskResponse.id}
                     <td>${taskResponse.task_name}</td> 
                     <td>${taskResponse.task_owner}</td>
                     <td>${taskResponse.task_priority}</td>
+                    <td>${completed}</td>
                     <td>${taskResponse.notes}</td>
-                    <td><button class="completeButton btn btn-info">Task Completed</button></td>
                     <td><button class="editButton btn btn-info">Edit</button></td>
                     <td><button class="deleteButton btn btn-info">Delete</button></td>
+                    <!--<td><button class="completeButton btn btn-info">Click to mark complete</button></td>-->
+                    ${completeButtonShow}
+                    
                     </tr>`);
             }
         }
