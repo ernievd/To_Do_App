@@ -1,0 +1,25 @@
+{
+  "name": "to_do_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernievd/To_Do_App.git"
+  },
+  "author": "Ernie Van Duyne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ernievd/To_Do_App/issues"
+  },
+  "homepage": "https://github.com/ernievd/To_Do_App#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "pg": "^7.4.1"
+  }
+}
