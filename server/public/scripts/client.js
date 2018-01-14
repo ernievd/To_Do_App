@@ -9,6 +9,8 @@ function readySetGo() {
     // Event Listeners
     $('#addTask').on('click', addTask);
     $('.table').on('click', '.completeButton', completeTask);
+    $('.table').on('click', '.deleteButton', deleteTask);
+
 } // End readySetGo
 
 //Get the current table data and populate the DOM with all
@@ -83,8 +85,27 @@ function completeTask() {
         });
 }// End completeTask function
 
+function deleteTask () {
+    const buttonId = $(this).parents('.toDoItem').data('id');
 
-
+    $.ajax({
+        method: 'DELETE',
+        url: '/toDo/' + buttonId,
+        success: function(response) {
+            console.log('response', response);
+            $('#tableBody').empty();
+            getTasks();
+        }
+    });
+}
+function addTask() {
+    let newKoala = {
+        name: $('#koalaName').val(),
+        gender: $('#koalaGender').val(),
+        age: $('#koalaAge').val(),
+        transferrable: $('#readyToTransfer').val(),
+        notes: $('#koalaNotes').val()
+    };
 
 
 
