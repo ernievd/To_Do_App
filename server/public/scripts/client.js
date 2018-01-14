@@ -32,13 +32,17 @@ function getTasks() {
                 // // $listItem.append(`<button class="editButton btn btn-info">Edit</button>`);
                 // $('#taskList').prepend($listItem);
 
-                //$('#tableBody').append(`<tr> <td>"HELLO"</td></tr>`);
 
-                $('.table').append(`<tr> 
+                // Create a new row with all the returned data for each instance in the returned object
+                //    Also store the data-id info in each row in case it is needed from the html in the future
+                $('.table').append(`<tr> data-id="${taskResponse.id}
                     <td>${taskResponse.task_name}</td> 
                     <td>${taskResponse.task_owner}</td>
                     <td>${taskResponse.task_priority}</td>
-                    <td>${taskResponse.notes}</td></tr>`);
+                    <td>${taskResponse.notes}</td>
+                    <td><button class="editButton btn btn-info">Edit</button></td>
+                    <td><button class="deleteButton btn btn-info">Delete</button></td>
+                    </tr>`);
             }
         }
     });
