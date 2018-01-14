@@ -21,22 +21,28 @@ function getTasks() {
             console.log('response from getTask', response);
             for (let i = 0; i < response.length; i++) {
                 const taskResponse = response[i];
-                let transferButton;
 
                 // Update the following to use template literals - back ticks
-                let $listItem = $(`<li class="taskItem jumbotron" data-id="${taskResponse.id}">`);
-                $listItem.append(`<h2 class="taskName" data-name="${taskResponse.task_name}">${taskResponse.task_name}</h2>`);
-                $listItem.append(`<p class="taskAssignee" data-assignee="${taskResponse.task_owner}">Owner: ${taskResponse.task_owner}</p>`);
-                $listItem.append(`<p class="gender" data-priorityr="${taskResponse.task_priority}">Priority: ${taskResponse.task_priority}</p>`);
-                $listItem.append(`<p class="notes">${taskResponse.notes}</p>`);
+                // let $listItem = $(`<li class="taskItem jumbotron" data-id="${taskResponse.id}">`);
+                // $listItem.append(`<h2 class="taskName" data-name="${taskResponse.task_name}">${taskResponse.task_name}</h2>`);
+                // $listItem.append(`<p class="taskAssignee" data-assignee="${taskResponse.task_owner}">Owner: ${taskResponse.task_owner}</p>`);
+                // $listItem.append(`<p class="gender" data-priorityr="${taskResponse.task_priority}">Priority: ${taskResponse.task_priority}</p>`);
+                // $listItem.append(`<p class="notes">${taskResponse.notes}</p>`);
+                // // $listItem.append(`<button class="deleteButton btn btn-info">Delete</button>`);
+                // // $listItem.append(`<button class="editButton btn btn-info">Edit</button>`);
+                // $('#taskList').prepend($listItem);
 
-                // $listItem.append(`<button class="deleteButton btn btn-info">Delete</button>`);
-                // $listItem.append(`<button class="editButton btn btn-info">Edit</button>`);
-                $('#taskList').prepend($listItem);
+                //$('#tableBody').append(`<tr> <td>"HELLO"</td></tr>`);
+
+                $('.table').append(`<tr> 
+                    <td>${taskResponse.task_name}</td> 
+                    <td>${taskResponse.task_owner}</td>
+                    <td>${taskResponse.task_priority}</td>
+                    <td>${taskResponse.notes}</td></tr>`);
             }
         }
     });
-}
+} // End getTasks function
 
 
 
