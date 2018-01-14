@@ -48,4 +48,19 @@ router.delete('/:id', function(req, res){
         });
 }); // End router.delete
 
+router.post('/', function(req, res) {
+    const queryText = 'INSERT INTO tasks(task_name, task_owner, task_priority, task_complete, notes) VALUES($1, $2, $3, $4, $5)';
+    pool.query(queryText, [req.body.task_name, req.body.task_owner, req.body.task_priority, req.body.task_complete, req.body.notes])
+    // runs on successful query
+        .then((result) => {
+            //console.log('query results: ', result);
+            res.sendStatus(201);
+        })
+        // error handling
+        .catch((err) => {
+            console.log('error making select query:', err);
+            res.sendStatus(500);
+        });
+});// End router.post
+
 module.exports = router;
