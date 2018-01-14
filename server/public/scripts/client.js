@@ -40,6 +40,7 @@ function getTasks() {
                     <td>${taskResponse.task_owner}</td>
                     <td>${taskResponse.task_priority}</td>
                     <td>${taskResponse.notes}</td>
+                    <td><button class="completeButton btn btn-info">Task Completed</button></td>
                     <td><button class="editButton btn btn-info">Edit</button></td>
                     <td><button class="deleteButton btn btn-info">Delete</button></td>
                     </tr>`);
