@@ -8,9 +8,10 @@ function readySetGo() {
 
     // Event Listeners
     $('#addTask').on('click', addTask);
+    $('.table').on('click', '.completeButton', completeTask);
 } // End readySetGo
 
-
+//Get the current table data and populate the DOM with all
 function getTasks() {
     $.ajax({
         method: 'GET',
@@ -37,16 +38,17 @@ function getTasks() {
                 //      set up completed button to show
                 //      set up the color of the row by using bootstrap
                 let completed = 'No';
-                let setRowColor = `class="danger"`;
+                let setRowColor = `class="danger toDoItem"`;
                 let completeButtonShow = `<td><button class="completeButton btn btn-info">Click to mark complete</button></td>`;
                 if (taskResponse.task_complete){
                     completed = 'Yes';
                     completeButtonShow =  `<td></td>`;
-                    setRowColor = `class="success"`;
+                    setRowColor = `class="success toDoItem"`;
                 }
                 // Create a new row with all the returned data for each instance in the returned object
                 //    Also store the data-id info in each row in case it is needed from the html in the future
-                $('.table').append(`<tr ${setRowColor}> data-id="${taskResponse.id}
+
+                $('.table').append(`<tr ${setRowColor} data-id="${taskResponse.id}">
                     <td>${taskResponse.task_name}</td> 
                     <td>${taskResponse.task_owner}</td>
                     <td>${taskResponse.task_priority}</td>
@@ -63,6 +65,23 @@ function getTasks() {
     });
 } // End getTasks function
 
+//Mark the matching entry that it is complete in the database and reload the page
+function completeTask() {
+        const buttonId = $(this).closest('.toDoItem').data('id');
+        console.log('buttonId', buttonId);
+
+        $.ajax({
+            method: 'PUT',
+            url: '/toDo/' + buttonId,
+            data: { task_complete: 'Y' },
+            success: function(response) {
+                console.log('response:', response);
+                //update the DOM
+                $('#tableBody').empty();
+                getTasks();
+            }
+        });
+}// End completeTask function
 
 
 
