@@ -74,16 +74,20 @@ function completeTask() {
 }// End completeTask function
 
 function deleteTask () {
-    const buttonId = $(this).parents('.toDoItem').data('id');
-    $.ajax({
-        method: 'DELETE',
-        url: '/toDo/' + buttonId,
-        success: function(response) {
-            console.log('response', response);
-            $('#tableBody').empty();
-            getTasks();
-        }
-    });
+    if (confirm('Are you sure you want to delete?')) {
+        const buttonId = $(this).parents('.toDoItem').data('id');
+        $.ajax({
+            method: 'DELETE',
+            url: '/toDo/' + buttonId,
+            success: function(response) {
+                console.log('response', response);
+                $('#tableBody').empty();
+                getTasks();
+            }
+        });
+    } else {
+        // Do nothing!
+    }
 }
 
 function addTask() {
