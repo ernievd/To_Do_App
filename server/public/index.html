@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="vendors/jquery.min.js"></script>
-    <script src="scripts/client.js"></script>
-    <!–– <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>To Do - Lets Track and Get Things Done!</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="vendors/jquery.min.js"></script>
+        <script src="scripts/client.js"></script>
+        <!–– <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <title>To Do - Lets Track and Get Things Done!</title>
+    </head>
 
-    <header>
-        <h1>Task List</h1>
-    </header>
-<input type="text" placeholder="Task" id="taskInput" />
-<input type="text" placeholder="Assignee" id="assigneeInput" />
-<!-- <input type="text" placeholder="Priority" id="priorityInput" /> -->
-<!-- <p>Ready to Transfer?</p> -->
-<select id="priorityInput">
-    <option value="Low">Low</option>
-    <option value="Medium">Medium</option>
-    <option value="Hign">High</option>
-</select>
-<textarea id="taskNotesInput" cols="30" rows="10" placeholder="Notes"></textarea>
-<button id="addTask" class="btn btn-info">Add Task</button>
-<ul id="taksList"></ul>
-
-<div class="container">
-    <h2>Task Table</h2>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Task</th>
-            <th>Assignee</th>
-            <th>Priority</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-        </tr>
-        </tbody>
-    </table>
-    </div>
-
-
-</body>
+    <body>
+        <header>
+            <h1>Task List</h1>
+        </header>
+        <input type="text" placeholder="Task" id="taskInput" />
+        <input type="text" placeholder="Assignee" id="assigneeInput" />
+        <!-- <input type="text" placeholder="Priority" id="priorityInput" /> -->
+        <!-- <p>Ready to Transfer?</p> -->
+        <select id="priorityInput">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="Hign">High</option>
+        </select>
+        <textarea id="taskNotesInput" cols="30" rows="10" placeholder="Notes"></textarea>
+        <button id="addTask" class="btn btn-info">Add Task</button>
+        <ul id="taskList"></ul>
+            <div class="container">
+                <h2>Task Table</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Assignee</th>
+                        <th>Priority</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </body>
 </html>
